@@ -210,3 +210,7 @@ Esto genera carga continua para que el HPA escale los pods según el uso de CPU.
 ```
 while true; do wget -q -O- http://apache-service.apache.svc.cluster.local; done
 ```
+## referencias:
+
+- https://kiranpawar.hashnode.dev/16-kubernetes-hpa-horizontal-pod-autoscaler-on-kind-cluster
+- https://blog.devops.dev/deploy-a-app-with-kubernetes-kind-and-helm-in-5-minutes-bca70fd24e05

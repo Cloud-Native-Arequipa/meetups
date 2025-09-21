@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-loadbalancer
+  namespace: apache
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: hello
+  template:
+    metadata:
+      labels:
+        role: hello
+    spec:
+      containers:
+      - name: apache
+        image: httpd:2.4
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 200m
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-loadbalancer
+  namespace: apache
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    role: hello

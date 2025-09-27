@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world
+  namespace: mariov2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: mario-container
+        image: nirmalnaveen/supermario
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+      - name: sidecar-container
+        image: bithavoc/hello-world-env
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MESSAGE
+          value: "saludos cloud native aqp!!"
+        

@@ -22,23 +22,23 @@ templates/
 helm template .
 
 # Instalar el chart en modo dry-run
-helm install --dry-run my-release hello-world-chart
+helm install --dry-run hello-release hello-world-chart
 
 # Instalar el chart
-helm install frontend hello-world-chart
+helm install hello-release hello-world-chart
 
 # Instalar nuevamente 
-helm install frontend hello-world-chart 
+helm install hello-release hello-world-chart 
 
 # Actualizar el release
-helm upgrade frontend hello-world-chart
+helm upgrade hello-release hello-world-chart
 
 # Hacer rollback del release
-helm rollback frontend
+helm rollback hello-release
 helm rollback <release-name> <revision-number>
 
 # Empaquetar el chart
-helm package chart-name/
+helm package hello-world-chart/
 ```
 
 ---
@@ -56,6 +56,8 @@ flux install
 
 # Verificar pods de Flux
 kubectl get pods -n flux-system
+
+El repositorio fuente gitops fue actualizado al siguiente: https://github.com/Cloud-Native-Arequipa/flux-cncf-aqp-gitops
 
 # Variables de entorno para bootstrap con GitHub
 export GITHUB_USER="cloud-native-arequipa"

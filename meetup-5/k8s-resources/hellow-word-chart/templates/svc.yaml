@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-deployment
+spec:
+  selector:
+    app: {{ .Release.Name }}-deployment
+  ports:
+    - port: 3000
+      targetPort: 3000

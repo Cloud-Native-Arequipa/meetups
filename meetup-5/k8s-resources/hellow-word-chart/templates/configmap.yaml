@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-deployment
+data:
+  conexions: "dummy_connection_string"
+  environment: "development"

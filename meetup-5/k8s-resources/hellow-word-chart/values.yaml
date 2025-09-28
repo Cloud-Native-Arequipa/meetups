@@ -1,0 +1,14 @@
+# Default values for hellow-word-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+replicaCount: 5
+
+image:
+  repository: bithavoc/hello-world-env
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+message: "Saliudos Cloud Native Arequipa!!"
